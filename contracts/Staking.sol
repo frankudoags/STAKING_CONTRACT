@@ -84,16 +84,14 @@ contract Staking is ERC20, ERC20Burnable, Ownable {
    }
      /**
     * @notice A method to retrieve the stake for a stakeholder.
-    * @param _stakeholder The stakeholder to retrieve the stake for.
     * @return uint256 The amount of wei staked.
     */
-   function stakeOf(address _stakeholder)
+   function stakeOf()
        public
-       onlyOwner
        view
        returns(uint256)
    {
-       return stakes[_stakeholder];
+       return stakes[msg.sender];
    }
 
    /**
